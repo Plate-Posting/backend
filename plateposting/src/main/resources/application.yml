@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: plateposting
+
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    hikari:
+      maximum-pool-size: 4
+    url: jdbc:postgresql://localhost:5432/Plate-Posting
+    username: post
+    password: 1234
+    driver-class-name: org.postgresql.Driver
