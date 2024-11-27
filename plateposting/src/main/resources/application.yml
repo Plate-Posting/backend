@@ -10,7 +10,11 @@ spring:
   datasource:
     hikari:
       maximum-pool-size: 4
-    url: jdbc:postgresql://localhost:5432/Plate-Posting
+    url: jdbc:postgresql://localhost:5432/plateposting
     username: post
     password: 1234
     driver-class-name: org.postgresql.Driver
+
+springdoc:
+  swagger-ui:
+    path: /api-test
