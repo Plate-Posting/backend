@@ -1,4 +1,4 @@
-package com.project.plateposting.member;
+package com.project.plateposting.api.member;
 
 import jakarta.persistence.*;
 import lombok.Builder;
