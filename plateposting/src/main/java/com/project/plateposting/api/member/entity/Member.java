@@ -12,7 +12,7 @@ import lombok.*;
 @Entity
 @Getter
 @Builder(toBuilder = true)
-@Table(name = "user")
+@Table(name = "member")
 @EntityListeners(AuditingEntityListener.class)
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
