@@ -1,4 +1,4 @@
-package com.project.plateposting.api.member;
+package com.project.plateposting.api;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
