@@ -45,4 +45,13 @@ public class MemberService {
             throw new BadRequestException(ErrorStatus.DUPLICATE_EMAIL.getMessage());
         }
     }
+
+    @Transactional
+    public void updateRefreshToken(String email, String refreshToken) {
+        memberRepository.findByEmail(email)
+                .ifPresent(member -> {
+                    Member updatedMember = member.updateRefreshToken(refreshToken);
+                    memberRepository.save(updatedMember);
+                });
+    }
 }

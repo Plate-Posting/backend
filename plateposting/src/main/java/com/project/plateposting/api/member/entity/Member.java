@@ -40,6 +40,12 @@ public class Member {
     @Column(name = "updated_at")
     protected LocalDateTime updatedAt;
 
+    public Member updateRefreshToken(String updateRefreshToken) {
+        return this.toBuilder()
+                .refreshToken(updateRefreshToken)
+                .build();
+    }
+
     public Member authorizeUser() {
         return this.toBuilder()
                 .role(Role.USER)
