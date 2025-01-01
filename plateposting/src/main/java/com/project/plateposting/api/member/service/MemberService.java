@@ -9,6 +9,7 @@ import com.project.plateposting.common.response.ErrorStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,17 +17,21 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public void registerUser(RegisterRequestDTO registerRequestDTO) {
+        String rawPassword = registerRequestDTO.getPassword();
+        String encodedPassword = passwordEncoder.encode(rawPassword);
+
         Member newMember = Member.builder()
                 .nickname(registerRequestDTO.getNickname())
                 .email(registerRequestDTO.getEmail())
-                .password(registerRequestDTO.getPassword())
+                .password(encodedPassword)
                 .role(Role.GUEST)
                 .build();
-
         checkEmail(newMember.getEmail());
+
         try {
             memberRepository.save(newMember);
         } catch (BadRequestException e) {
