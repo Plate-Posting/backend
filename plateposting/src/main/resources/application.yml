@@ -2,18 +2,13 @@ spring:
   application:
     name: plateposting
 
+  profiles:
+    active: jwt, db
+
   jpa:
     database: postgresql
     hibernate:
       ddl-auto: update
-
-  datasource:
-    hikari:
-      maximum-pool-size: 4
-    url: jdbc:postgresql://localhost:5432/plateposting
-    username: post
-    password: 1234
-    driver-class-name: org.postgresql.Driver
 
 springdoc:
   swagger-ui:
